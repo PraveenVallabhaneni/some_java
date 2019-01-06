@@ -1,4 +1,15 @@
 <project>
+  <target name="tjar" depends="tcomp">
+    <jar destfile="test/hello.jar" basedir="test/hello">
+      <manifest>
+        <attribute name="Test-Class" value="hellotest"/>
+          </manifest>
+        </jar>
+      </target>
+    <target name="tcomp">
+      <javac srcdir="test" destdir="test"/>
+  </target>
+    
   <target name="junit" depends="tjar">
   <junit printsummary="yes">
     <classpath refid="classpath"/>
